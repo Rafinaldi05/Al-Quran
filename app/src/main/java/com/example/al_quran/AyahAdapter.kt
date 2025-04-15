@@ -36,7 +36,7 @@ class AyahAdapter : ListAdapter<Ayah, AyahAdapter.AyahViewHolder>(AyahDiffCallba
 
             val isPlaying = position == currentlyPlayingPosition
             playPauseButton.setImageResource(
-                if (isPlaying) R.drawable.play_pause_24px else R.drawable.play_pause_24px
+                if (isPlaying) R.drawable.pause_24px else R.drawable.play_arrow_24px
             )
 
             playPauseButton.setOnClickListener {

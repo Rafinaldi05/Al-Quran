@@ -37,8 +37,8 @@
         android:id="@+id/btnPlayPause"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:src="@drawable/play_pause_24px"
         android:contentDescription="Play"
+        android:textSize="10sp"
         android:background="?attr/selectableItemBackgroundBorderless" />
 </LinearLayout>
 </androidx.cardview.widget.CardView>
