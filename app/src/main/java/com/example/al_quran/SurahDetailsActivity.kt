@@ -2,6 +2,7 @@ package com.example.al_quran
 
 import AyahAdapter
 import android.os.Bundle
+import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -13,6 +14,8 @@ import retrofit2.converter.gson.GsonConverterFactory
 class SurahDetailsActivity : AppCompatActivity() {
     private lateinit var recyclerView: RecyclerView
     private lateinit var adapter: AyahAdapter
+    private lateinit var revelationTypeText: TextView
+
 
     private val job = Job()
     private val uiScope = CoroutineScope(Dispatchers.Main + job)
@@ -33,10 +36,19 @@ class SurahDetailsActivity : AppCompatActivity() {
         recyclerView.layoutManager = LinearLayoutManager(this)
         adapter = AyahAdapter()
         recyclerView.adapter = adapter
+        revelationTypeText = findViewById(R.id.textRevelationType)
 
         val surahId = intent.getIntExtra("SURAH_ID", 1)
         val surahName = intent.getStringExtra("SURAH_NAME")
-        title = surahName ?: "Surah"
+        val surahTranslation = intent.getStringExtra("SURAH_TRANSLATION")
+        val surahType = intent.getStringExtra("SURAH_TYPE")
+        title = if (surahName != null && surahTranslation != null) {
+            "$surahName ($surahTranslation)"
+        } else {
+            surahName ?: "Surah"
+        }
+        revelationTypeText.text = "Revelation: $surahType"
+
 
         fetchSurahDetails(surahId)
     }
@@ -55,7 +67,8 @@ class SurahDetailsActivity : AppCompatActivity() {
                         number = ar.number,
                         numberInSurah = ar.numberInSurah,
                         arabicText = ar.text,
-                        translationText = tr.text
+                        translationText = tr.text,
+                        audioUrl = ar.audio
                     )
                 }
 
@@ -73,6 +86,6 @@ class SurahDetailsActivity : AppCompatActivity() {
 
     override fun onDestroy() {
         super.onDestroy()
-        job.cancel() // hentikan coroutine jika activity ditutup
+        job.cancel()
     }
 }

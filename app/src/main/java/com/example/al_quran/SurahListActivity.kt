@@ -20,7 +20,7 @@ class SurahListActivity : AppCompatActivity() {
         setContentView(R.layout.activity_surah_list)
 
         recyclerView = findViewById(R.id.recyclerView)
-        recyclerView.layoutManager = LinearLayoutManager(this) // <= tambahkan ini
+        recyclerView.layoutManager = LinearLayoutManager(this)
         adapter = SurahAdapter { surah -> openSurahDetails(surah) }
         recyclerView.adapter = adapter
 
@@ -48,7 +48,9 @@ class SurahListActivity : AppCompatActivity() {
     private fun openSurahDetails(surah: Surah) {
         val intent = Intent(this, SurahDetailsActivity::class.java)
         intent.putExtra("SURAH_ID", surah.number)
-        intent.putExtra("SURAH_NAME", surah.name)
+        intent.putExtra("SURAH_NAME", surah.englishName)
+        intent.putExtra("SURAH_TRANSLATION", surah.englishNameTranslation)
+        intent.putExtra("SURAH_TYPE", surah.revelationType)
         startActivity(intent)
     }
 }
