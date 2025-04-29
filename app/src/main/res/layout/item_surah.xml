@@ -43,7 +43,6 @@
         android:textSize="14sp"
         android:layout_marginTop="4dp"/>
 
-
     <TextView
         android:id="@+id/textAyahCount"
         android:layout_width="match_parent"

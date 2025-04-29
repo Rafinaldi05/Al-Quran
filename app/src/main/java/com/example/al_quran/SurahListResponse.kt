@@ -34,7 +34,6 @@ data class RawAyah(
     val audio: String
 )
 
-
 data class Ayah(
     val number: Int,
     val numberInSurah: Int,

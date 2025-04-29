@@ -2,6 +2,8 @@ plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
     alias(libs.plugins.kotlin.compose)
+    alias(libs.plugins.google.services)
+
 }
 
 android {
@@ -52,6 +54,14 @@ dependencies {
     implementation(libs.retrofit)
     implementation(libs.converter.gson)
     implementation(libs.androidx.recyclerview)
+    implementation(libs.firebase.auth)
+    implementation(platform(libs.firebase.bom))
+    implementation(libs.firebase.analytics)
+    implementation(libs.play.services.auth.v2130)
+    implementation(libs.firebase.auth.ktx)
+    implementation(libs.androidx.datastore.preferences)
+    implementation(libs.googleSignin)
+    implementation(libs.firebase.firestore.ktx)
     implementation(libs.androidx.appcompat)
     implementation(libs.cronet.embedded)
     implementation (libs.androidx.cardview)

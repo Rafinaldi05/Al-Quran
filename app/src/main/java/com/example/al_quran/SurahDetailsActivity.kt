@@ -1,32 +1,23 @@
 package com.example.al_quran
 
 import AyahAdapter
+import android.content.Intent
 import android.os.Bundle
+import android.widget.ImageButton
 import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import kotlinx.coroutines.*
-import retrofit2.Retrofit
-import retrofit2.converter.gson.GsonConverterFactory
 
 class SurahDetailsActivity : AppCompatActivity() {
     private lateinit var recyclerView: RecyclerView
     private lateinit var adapter: AyahAdapter
     private lateinit var revelationTypeText: TextView
 
-
     private val job = Job()
     private val uiScope = CoroutineScope(Dispatchers.Main + job)
-
-    private val api: QuranApi by lazy {
-        Retrofit.Builder()
-            .baseUrl("https://api.alquran.cloud/v1/edition/language/id/")
-            .addConverterFactory(GsonConverterFactory.create())
-            .build()
-            .create(QuranApi::class.java)
-    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -49,7 +40,6 @@ class SurahDetailsActivity : AppCompatActivity() {
         }
         revelationTypeText.text = "Revelation: $surahType"
 
-
         fetchSurahDetails(surahId)
     }
 
@@ -71,7 +61,6 @@ class SurahDetailsActivity : AppCompatActivity() {
                         audioUrl = ar.audio
                     )
                 }
-
                 withContext(Dispatchers.Main) {
                     adapter.submitList(combined)
                 }
@@ -82,7 +71,6 @@ class SurahDetailsActivity : AppCompatActivity() {
             }
         }
     }
-
 
     override fun onDestroy() {
         super.onDestroy()

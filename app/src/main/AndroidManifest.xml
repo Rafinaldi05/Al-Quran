@@ -15,9 +15,8 @@
         android:theme="@style/Theme.AlQuran"
         tools:targetApi="31">
 
-        <!-- Launcher Activity -->
         <activity
-            android:name=".SurahListActivity"
+            android:name=".LoginActivity"
             android:exported="true"
             android:label="@string/app_name"
             android:theme="@style/Theme.AlQuran">
@@ -27,7 +26,18 @@
             </intent-filter>
         </activity>
 
-        <!-- Detail Activity -->
+        <activity
+            android:name=".ProfileActivity"
+            android:exported="false"
+            android:label="@string/app_name"
+            android:theme="@style/Theme.AlQuran" />
+
+        <activity
+            android:name=".SurahListActivity"
+            android:exported="false"
+            android:label="@string/app_name"
+            android:theme="@style/Theme.AlQuran" />
+
         <activity
             android:name=".SurahDetailsActivity"
             android:exported="false"

@@ -1,20 +1,29 @@
 [versions]
-agp = "8.8.0"
+agp = "8.8.2"
 cardview = "1.0.0"
 kotlin = "2.0.0"
-coreKtx = "1.15.0"
+coreKtx = "1.16.0"
 junit = "4.13.2"
 junitVersion = "1.2.1"
 espressoCore = "3.6.1"
 lifecycleRuntimeKtx = "2.8.7"
 activityCompose = "1.10.1"
-composeBom = "2024.04.01"
+composeBom = "2025.04.01"
 material = "1.12.0"
 retrofit = "2.9.0"
 gson = "2.10.1"
 recyclerview = "1.4.0"
 appcompat = "1.7.0"
 cronetEmbedded = "119.6045.31"
+firebaseAuthKtx = "23.2.0"
+firebaseBom = "33.13.0"
+googleSignIn = "21.3.0"
+dataStore = "1.1.5"
+firebaseAuth = "23.2.0"
+firebaseFirestoreKtx = "25.1.4"
+playServicesAuth = "21.3.0"
+firebaseAnalytics = "21.5.1"
+
 
 [libraries]
 androidx-cardview = { module = "androidx.cardview:cardview", version.ref = "cardview" }
@@ -38,9 +47,23 @@ converter-gson = { group = "com.squareup.retrofit2", name = "converter-gson", ve
 androidx-recyclerview = { group = "androidx.recyclerview", name = "recyclerview", version.ref = "recyclerview" }
 androidx-appcompat = { group = "androidx.appcompat", name = "appcompat", version.ref = "appcompat" }
 cronet-embedded = { group = "org.chromium.net", name = "cronet-embedded", version.ref = "cronetEmbedded" }
+firebase-auth = { group = "com.google.firebase", name = "firebase-auth", version.ref = "firebaseAuth" }
+firebase-firestore-ktx = { group = "com.google.firebase", name = "firebase-firestore-ktx", version.ref = "firebaseFirestoreKtx" }
+play-services-auth-v2130 = { module = "com.google.android.gms:play-services-auth", version.ref = "playServicesAuth" }
+googleSignin = { group = "com.google.android.gms", name = "play-services-auth", version.ref = "googleSignIn" }
+firebase-auth-ktx = { module = "com.google.firebase:firebase-auth-ktx", version.ref = "firebaseAuthKtx" }
+firebase-bom = { module = "com.google.firebase:firebase-bom", version.ref = "firebaseBom" }
+androidx-datastore-preferences = { group = "androidx.datastore", name = "datastore-preferences", version.ref = "dataStore" }
+firebase-analytics = { group = "com.google.firebase", name = "firebase-analytics", version.ref = "firebaseAnalytics" }
+
+
+
+
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }
 kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
 kotlin-compose = { id = "org.jetbrains.kotlin.plugin.compose", version.ref = "kotlin" }
+google-services = { id = "com.google.gms.google-services", version = "4.4.1" }
+
 
